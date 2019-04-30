@@ -1,7 +1,7 @@
 toDAG
 ===========
 [![GitHub license](https://img.shields.io/github/license/aimerforreimu/AUXPI.svg)](https://github.com/aimerforreimu/AUXPI)   
-某世一大算法课的第一个实验
+
 ## 操作说明 
 * `shift + 左键` 创建节点。
 * 点击`L键`，开始创建边，创建边的方式是从一个节点点击拖动到另一个点。(鲁棒性很差，注意一定在节点点击)
