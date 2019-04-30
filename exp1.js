@@ -4,7 +4,7 @@ let points = [];
 let graph = [];
 let color = ['white', 'gray', 'black'];
 let time = 0;
-let c_width = 800, c_height = 800;
+let c_width = 600, c_height = 600;
 
 let arrow_color = 'rgba(0,0,256,0.4)';
 
@@ -46,47 +46,32 @@ window.onload = function()
         if(e.which === 67)
         {
             // c
+            clear();
+        }
+
+        if(e.which === 68)
+        {
+            //d
             do_draw_line = false;
             DFS(graph, points);
-            // console.log(graph);
-
             draw();
+
         }
     });
-
-    // //测试程序
-    // var cities = new LList();
-    // cities.insert("Conway", "head");
-    // cities.insert("Russellville", "Conway");
-    // cities.insert("Alma", "Russellville");
-    // cities.display();
-
-
-
-    // // 测试链表
-    // graph[0] = new LList();
-    // graph[0].insert(1,"head");
-    // graph[0].insert(3,1);
-    //
-    // graph[1] = new LList();
-    // graph[1].insert(2,'head');
-    //
-    // graph[2] = new LList();
-    // graph[2].insert(0,'head');
-    //
-    // graph[3] = new LList();
-    //
-    // num= 4;
-    // for(let i=0; i<num; i++)
-    // {
-    //     let point_temp = new Point(i, 0 ,0);
-    //     points.push(point_temp);
-    // }
-
-
-    // DFS(graph, points);
-
 };
+
+function clear()
+{
+
+    ctx.clearRect(0, 0, c_width, c_height);
+    num = 0;
+    points = [];
+    graph = [];
+    time = 0;
+    draw_point = true;
+    draw_line = false;
+    do_draw_line = false;
+}
 
 function DFS(graph, points)
 {
@@ -174,13 +159,6 @@ function onClick(e)
 
 function onMove(e)
 {   
-    // const x = e.clientX - canvas.getBoundingClientRect().left;
-    // const y = e.clientY - canvas.getBoundingClientRect().top;
-    // if(draw_line)
-    // {
-    //     ctx.lineTo(x,y);
-    //     ctx.stroke();
-    // }
 
 }
 
@@ -191,9 +169,6 @@ function onUp(e)
         const x = e.clientX - canvas.getBoundingClientRect().left;
         const y = e.clientY - canvas.getBoundingClientRect().top;
 
-        // ctx.moveTo(init_x, init_y);
-        // ctx.lineTo(x, y);
-        // ctx.stroke();
         drawArrow(ctx, init_x, init_y, x, y, 30, 15, 3, arrow_color);
         let f_point;
 
